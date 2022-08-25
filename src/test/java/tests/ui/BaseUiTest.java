@@ -85,7 +85,7 @@ public class BaseUiTest{
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
                 .click();
-        $(".donate_header")
+        $(".wrapper-color-content")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
 
