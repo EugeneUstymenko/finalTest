@@ -5,10 +5,6 @@
         <classes>
             <class name="tests.ui.SelenideHeathCheckParallelClass2"/>
             <class name="tests.ui.SelenideHeathCheckParallelClass3"/>
-        </classes>
-    </test>
-    <test name="Another test">
-        <classes>
             <class name="tests.ui.SelenideHeathCheckParallelClass4"/>
         </classes>
     </test>
