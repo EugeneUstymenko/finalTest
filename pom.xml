@@ -8,10 +8,15 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <maven.compiler.source>9</maven.compiler.source>
-    <maven.compiler.target>9</maven.compiler.target>
-    <allure.version>2.19.0</allure.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <testing.version>7.6.1</testing.version>
     <selenide.version>6.7.2</selenide.version>
+    <surefire.version>3.0.0-M7</surefire.version>
+    <aspectj.version>1.8.10</aspectj.version>
+    <allure.version>2.19.0</allure.version>
+
     <owner.version>1.0.12</owner.version>
   </properties>
 
@@ -27,29 +32,41 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M7</version>
+        <version>${surefire.version}</version>
         <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <suiteXmlFiles>
+            <!--<suiteXmlFile>src/test/resources/suites/SelenideClasses.xml</suiteXmlFile>-->
+            <suiteXmlFile>src/test/resources/suites/SelenideMethods.xml</suiteXmlFile>
+          </suiteXmlFiles>
           <systemProperties>
             <property>
               <name>allure.results.directory</name>
               <value>${project.build.directory}/allure-results</value>
             </property>
           </systemProperties>
-          <suiteXmlFiles>
-<!--            <suiteXmlFile>src/test/resources/suites/SelenideClasses.xml</suiteXmlFile>-->
-            <suiteXmlFile>src/test/resources/suites/SelenideMethods.xml</suiteXmlFile>
-          </suiteXmlFiles>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
 
   <dependencies>
 
+
+
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>7.6.1</version>
+      <version>${testing.version}</version>
       <scope>test</scope>
     </dependency>
 
