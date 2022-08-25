@@ -56,6 +56,7 @@ public class BaseUiTest{
         $(".donate_header")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
+
     @Test
     public void selenideTest2() {
         open("https://google.com");
