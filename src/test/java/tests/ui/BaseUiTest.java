@@ -57,7 +57,7 @@ public class BaseUiTest{
                 .pressEnter();
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(3))
                 .get(1)
                 .click();
         $(".donate_header")
@@ -73,7 +73,7 @@ public class BaseUiTest{
                 .pressEnter();
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(3))
                 .get(1)
                 .click();
         $(".donate_header")
@@ -89,7 +89,7 @@ public class BaseUiTest{
                 .pressEnter();
         $$x("//h3[contains(text(), 'Selenide: лаконичные ')]")
                 .filter(visible)
-                .shouldHave(sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(3))
                 .get(1)
                 .click();
         $(".wrapper-color-content")
@@ -105,7 +105,7 @@ public class BaseUiTest{
                 .pressEnter();
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(3))
                 .get(1)
                 .click();
         $(".donate_header")
@@ -121,7 +121,7 @@ public class BaseUiTest{
                 .pressEnter();
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(3))
                 .get(1)
                 .click();
         $(".donate_header")
