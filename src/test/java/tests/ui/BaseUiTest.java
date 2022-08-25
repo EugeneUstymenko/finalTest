@@ -11,30 +11,34 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class BaseUiTest{
-    //s
     @BeforeClass
-    public void baseUiSetup() throws MalformedURLException {
+    public void setUpSelenoid() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "103.0");
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        Map<String, Object> options = new HashMap<>();
+        options.put("enableVNC", true);
+        options.put("enableVideo", true);
+        capabilities.setCapability("selenoid:options", options);
         RemoteWebDriver driver = new RemoteWebDriver(
                 URI.create("http://192.168.0.102:4444/wd/hub").toURL(),
                 capabilities
         );
         WebDriverRunner.setWebDriver(driver);
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
+        SelenideLogger
+                .addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(false));
     }
 
     @Test
