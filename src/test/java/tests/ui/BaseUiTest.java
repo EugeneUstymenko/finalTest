@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BaseUiTest{
-
+    //s
     @BeforeClass
     public void baseUiSetup() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
