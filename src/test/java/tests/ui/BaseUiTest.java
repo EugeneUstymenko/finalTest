@@ -61,7 +61,7 @@ public class BaseUiTest{
                 .get(0)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
+                .shouldHave(text("Селенид поддерживает Украину"));
     }
 
     @Test
@@ -77,7 +77,7 @@ public class BaseUiTest{
                 .get(0)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
+                .shouldHave(text("Селенид поддерживает Украину"));
     }
 
     @Test
@@ -87,13 +87,13 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide: лаконичные ')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(3))
                 .get(0)
                 .click();
         $(".wrapper-color-content")
-                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
+                .shouldHave(text("Селенид поддерживает Украину"));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class BaseUiTest{
                 .get(0)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
+                .shouldHave(text("Селенид поддерживает Украину"));
     }
 
     @Test
@@ -125,7 +125,7 @@ public class BaseUiTest{
                 .get(0)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
+                .shouldHave(text("Селенид поддерживает Украину \uD83C\uDDFA\uD83C\uDDE6"));
     }
 
     @AfterClass
