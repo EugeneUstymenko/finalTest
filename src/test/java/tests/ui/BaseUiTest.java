@@ -58,7 +58,7 @@ public class BaseUiTest{
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(3))
-                .get(1)
+                .get(0)
                 .click();
         $(".donate_header")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
@@ -74,7 +74,7 @@ public class BaseUiTest{
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(3))
-                .get(1)
+                .get(0)
                 .click();
         $(".donate_header")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
@@ -90,7 +90,7 @@ public class BaseUiTest{
         $$x("//h3[contains(text(), 'Selenide: лаконичные ')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(3))
-                .get(1)
+                .get(0)
                 .click();
         $(".wrapper-color-content")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
@@ -106,7 +106,7 @@ public class BaseUiTest{
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(3))
-                .get(1)
+                .get(0)
                 .click();
         $(".donate_header")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
@@ -122,7 +122,7 @@ public class BaseUiTest{
         $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(3))
-                .get(1)
+                .get(0)
                 .click();
         $(".donate_header")
                 .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
