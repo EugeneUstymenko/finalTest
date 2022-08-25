@@ -80,7 +80,7 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide')]")
+        $$x("//h3[contains(text(), 'Selenide: лаконичные ')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
