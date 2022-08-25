@@ -1,6 +1,5 @@
 package tests.ui;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -14,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Map;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
@@ -39,81 +39,81 @@ public class BaseUiTest{
 
     @Test
     public void selenideTest1() {
-            open ("https://google.com");
+        open("https://google.com");
         $("[name='q']")
                 .shouldBe(visible)
-                .setValue("Selenide 1")
+                .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(). 'Selenide')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(CollectionCondition.sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine"));
+                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
     @Test
     public void selenideTest2() {
-        open ("https://google.com");
+        open("https://google.com");
         $("[name='q']")
                 .shouldBe(visible)
-                .setValue("Selenide 1")
+                .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(). 'Selenide')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(CollectionCondition.sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine"));
+                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
 
     @Test
     public void selenideTest3() {
-        open ("https://google.com");
+        open("https://google.com");
         $("[name='q']")
                 .shouldBe(visible)
-                .setValue("Selenide 1")
+                .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(). 'Selenide')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(CollectionCondition.sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine"));
+                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
 
     @Test
     public void selenideTest4() {
-        open ("https://google.com");
+        open("https://google.com");
         $("[name='q']")
                 .shouldBe(visible)
-                .setValue("Selenide 1")
+                .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(). 'Selenide')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(CollectionCondition.sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine"));
+                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
 
     @Test
     public void selenideTest5() {
-        open ("https://google.com");
+        open("https://google.com");
         $("[name='q']")
                 .shouldBe(visible)
-                .setValue("Selenide 1")
+                .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(). 'Selenide')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
-                .shouldHave(CollectionCondition.sizeGreaterThanOrEqual(7))
+                .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
                 .click();
         $(".donate_header")
-                .shouldHave(text("Selenide Supports Ukraine"));
+                .shouldHave(text("Selenide Supports Ukraine \uD83C\uDDFA\uD83C\uDDE6"));
     }
 
     @AfterClass
