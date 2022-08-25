@@ -2,6 +2,8 @@ package tests.ui;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
@@ -21,16 +23,17 @@ public class BaseMethodUiTest extends BaseTest {
         if (isRemote == true) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
-            capabilities.setCapability("browserVersion", "103.0");
+            capabilities.setCapability("browserVersion", "104.0");
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                     "enableVNC", true,
                     "enableVideo", true
             ));
             RemoteWebDriver driver = new RemoteWebDriver(
-                    URI.create("http://localhost:4444/wd/hub").toURL(),
+                    URI.create("http://192.168.0.102:4444/wd/hub").toURL(),
                     capabilities
             );
             WebDriverRunner.setWebDriver(driver);
+            SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
             Selenide.open(baseUrl);
         } else {
             Selenide.open(baseUrl);

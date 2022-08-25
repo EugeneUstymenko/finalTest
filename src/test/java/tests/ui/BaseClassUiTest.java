@@ -17,14 +17,14 @@ import java.util.Map;
 
 public class BaseClassUiTest extends BaseTest {
 
-    @BeforeClass
+    @BeforeMethod
     public void baseUiSetup() throws MalformedURLException {
         boolean isRemote = true;//need to read from properties
         String baseUrl = "https://google.com";//need to read from properties
         if (isRemote == true) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
-            capabilities.setCapability("browserVersion", "103.0");
+            capabilities.setCapability("browserVersion", "104.0");
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                     "enableVNC", true,
                     "enableVideo", true
@@ -40,7 +40,7 @@ public class BaseClassUiTest extends BaseTest {
         }
     }
 
-    @AfterClass
+    @AfterMethod
     public void closeDriver() {
         WebDriverRunner.closeWebDriver();
     }

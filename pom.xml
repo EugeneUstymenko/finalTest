@@ -37,8 +37,8 @@
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
           </argLine>
           <suiteXmlFiles>
-            <!--<suiteXmlFile>src/test/resources/suites/SelenideMethods.xml</suiteXmlFile>-->
-            <suiteXmlFile>src/test/resources/suites/SelenideClasses.xml</suiteXmlFile>
+            <!--<suiteXmlFile>src/test/resources/suites/SelenideClasses.xml</suiteXmlFile>-->
+            <suiteXmlFile>src/test/resources/suites/SelenideMethods.xml</suiteXmlFile>
           </suiteXmlFiles>
           <systemProperties>
             <property>
@@ -66,12 +66,12 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
+   <!-- <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-testng</artifactId>
       <version>${allure.version}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>com.codeborne</groupId>
@@ -83,6 +83,13 @@
       <groupId>org.aeonbits.owner</groupId>
       <artifactId>owner</artifactId>
       <version>${owner.version}</version>
+    </dependency>
+    <dependency>
+
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-selenide</artifactId>
+      <version>${allure.version}</version>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
