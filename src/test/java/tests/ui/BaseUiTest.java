@@ -25,7 +25,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class BaseUiTest{
     @BeforeMethod
     public void setUp(){
-        Configuration.timeout = 10;
+        Configuration.timeout = 5;
     }
 
     @BeforeClass
@@ -55,7 +55,7 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide: лаконичные')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
@@ -71,7 +71,7 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide: лаконичные')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
@@ -87,7 +87,7 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide: лаконичные')]")
+        $$x("//h3[contains(text(), 'Selenide: лаконичные ')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
@@ -103,7 +103,7 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide: лаконичные')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
@@ -119,7 +119,7 @@ public class BaseUiTest{
                 .shouldBe(visible)
                 .setValue("Selenide")
                 .pressEnter();
-        $$x("//h3[contains(text(), 'Selenide: лаконичные')]")
+        $$x("//h3[contains(text(), 'Selenide')]")
                 .filter(visible)
                 .shouldHave(sizeGreaterThanOrEqual(7))
                 .get(1)
