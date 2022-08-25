@@ -29,7 +29,7 @@ public class BaseClassUiTest extends BaseTest {
                     "enableVideo", true
             ));
             RemoteWebDriver driver = new RemoteWebDriver(
-                    URI.create("http://localhost:4444/wd/hub").toURL(),
+                    URI.create("http://192.168.0.102:4444/wd/hub").toURL(),
                     capabilities
             );
             WebDriverRunner.setWebDriver(driver);
