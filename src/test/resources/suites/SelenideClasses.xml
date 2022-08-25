@@ -1,15 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Selenide" verbose="1" parallel="classes" thread-count="4">
+<suite name="Selenide">
     <test name="Health check">
         <classes>
-            <class name="tests.ui.SelenideHeathCheckParallelClass2"/>
-            <class name="tests.ui.SelenideHeathCheckParallelClass3"/>
-        </classes>
-    </test>
-    <test name="Another test">
-        <classes>
-            <class name="tests.ui.SelenideHeathCheckParallelClass4"/>
+            <class name="tests.ui.BaseUiTest"/>
         </classes>
     </test>
 </suite>
