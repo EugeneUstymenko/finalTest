@@ -1,5 +1,6 @@
 package tests.ui;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -7,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -21,6 +23,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class BaseUiTest{
+    @BeforeMethod
+    public void setUp(){
+        Configuration.timeout = 10;
+    }
+
     @BeforeClass
     public void setUpSelenoid() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();

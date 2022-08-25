@@ -13,11 +13,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <testing.version>7.6.1</testing.version>
-    <selenide.version>6.6.6</selenide.version>
+    <selenide.version>6.7.2</selenide.version>
     <surefire.version>3.0.0-M7</surefire.version>
     <aspectj.version>1.8.10</aspectj.version>
-    <allure.version>2.18.1</allure.version>
-    <selenium.version>4.3.0</selenium.version>
+    <allure.version>2.19.0</allure.version>
+    <selenium.version>4.4.0</selenium.version>
     <owner.version>1.0.12</owner.version>
     <lombok.version>1.18.24</lombok.version>
   </properties>
@@ -99,6 +99,5 @@
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
     </dependency>
-
   </dependencies>
 </project>
