@@ -16,13 +16,15 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Map;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static pages.rozetkapage.RozetkaPage.*;
 
-public class RozetkaTest {
+public class RozetkaTest extends BaseTest {
 
-    @BeforeClass
+   /* @BeforeClass
     public void setUpSelenoid() throws MalformedURLException {
+        //настройки в пропертях - selenoid
         FrameworkProperties frameworkProperties =
                 ConfigFactory.create(FrameworkProperties.class);
         if (frameworkProperties.getDriverRemote()) {
@@ -42,20 +44,23 @@ public class RozetkaTest {
         } else {
             Selenide.open(frameworkProperties.getBaseUrl());
         }
-    }
+    }*/
 
-    @Test
+    @Test (testName = "Rozenka have to button 'Buy'",
+            description = "Checking if the product is in stock, then the 'Buy' button is enabled")
     public void rozetkaIsEnabledButton(){
+        getDriver().get("https://rozetka.com.ua");
         openRozetkaGoods();
-        $("[class='product__buy']")
-                .isEnabled();
+        $("[class='product__buy']").shouldBe(visible).isEnabled();
     }
 
-    @Test
+    @Test (testName = "Rozenka login/password forms button",
+            description = "Check if all the fields of the login/password form are filled in, then the 'Login' button is enabled")
     public void rozetkaCheckLoginFormLoginPasswordButton(){
+        getDriver().get("https://rozetka.com.ua");
         openRozetkaLoginForm();
         $("[class='modal__content']")
-                .shouldBe(Condition.visible);
+                .shouldBe(visible);
 
         $x("//label[text()=' Ел. пошта або телефон ']")
                 .shouldHave(Condition.text("Ел. пошта або телефон"));
