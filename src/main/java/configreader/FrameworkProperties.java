@@ -1,9 +1,10 @@
 package configreader;
 
 import org.aeonbits.owner.Config;
+import org.openqa.selenium.Capabilities;
 
 @Config.Sources("classpath:framework-config.properties")
-public interface FrameworkProperties extends Config {
+public interface FrameworkProperties extends Config, Capabilities {
 
     @Key("configuration.pageLoad.timeout")
     int getPageTimeout();

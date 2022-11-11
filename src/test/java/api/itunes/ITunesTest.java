@@ -3,21 +3,36 @@ package api.itunes;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dto.OuterErrorITunesDto;
 import dto.OuterITunesDto;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.path.json.JsonPath;
+import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.Map;
 
 public class ITunesTest {
 
     private static final String BASE_URL = "https://itunes.apple.com";
+    private RequestSpecification requestSpecification;
 
-    @Test
+    @BeforeClass
+    private void setUp(){
+        requestSpecification = new RequestSpecBuilder()
+                .addFilter(new AllureRestAssured())
+                .addHeader("Content-Type", "application/json")
+                .build();
+    }
+
+    @Test (testName = "Itunes search",
+            description = "The response of the GET search method must contain values according to the test")
     public void checkSearch() throws JsonProcessingException {
-        JsonPath jsonPath = RestAssured.given()
-                .header("Content-Type", "application/json")
+        JsonPath jsonPath = RestAssured
+                .given()
+                .spec(requestSpecification)
                 .baseUri(BASE_URL)
                 .params(Map.of("term", "David+dallas",
                         "country", "US",
@@ -31,17 +46,19 @@ public class ITunesTest {
                 .jsonPath();
 
         OuterITunesDto outerITunesDto = new ObjectMapper().readValue(jsonPath.prettyPrint(), OuterITunesDto.class);
-        Assert.assertTrue(outerITunesDto.getResults().stream().allMatch(result->result.getTrackName()
-                .equals("Runnin'")));
+        Assert.assertTrue(outerITunesDto.getResults().stream().allMatch(result->result.getIsStreamable()
+                .equals(true)));
         Assert.assertTrue(outerITunesDto.getResults().stream().allMatch(result -> result.getArtistName()
                 .equals("David Dallas")));
         Assert.assertTrue(outerITunesDto.getResults().stream().allMatch(result->result.getDiscNumber() == 1));
     }
 
-    @Test
+    @Test (testName = "Itunes lookup",
+            description = "The response of the GET lookup method must contain values according to the test")
     public void checkLookUp() throws JsonProcessingException {
-        JsonPath jsonPath = RestAssured.given()
-                .header("Content-Type", "application/json")
+        JsonPath jsonPath = RestAssured
+                .given()
+                .spec(requestSpecification)
                 .baseUri(BASE_URL)
                 .params(Map.of("id", "259120415",
                         "entity", "album",
@@ -60,10 +77,12 @@ public class ITunesTest {
         Assert.assertTrue(outerITunesDto.getResults().stream().allMatch(result -> result.getArtistId() == 259120415));
     }
 
-    @Test
+    @Test (testName = "Itunes search error",
+            description = "The response of the GET search method must contain info about error")
     public void checkErrorSearch() throws JsonProcessingException {
-        JsonPath jsonPath = RestAssured.given()
-                .header("Content-Type", "application/json")
+        JsonPath jsonPath = RestAssured
+                .given()
+                .spec(requestSpecification)
                 .baseUri(BASE_URL)
                 .params(Map.of("term", "Okean+Elzy",
                         "country", "UAs",

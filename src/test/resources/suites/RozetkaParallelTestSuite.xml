@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Rozetka" parallel="methods" thread-count="2">
+    <test thread-count="2" name="Rozetka test">
+        <classes>
+            <class name="ui.rozetka.RozetkaTest"/>
+        </classes>
+    </test>
+</suite>
